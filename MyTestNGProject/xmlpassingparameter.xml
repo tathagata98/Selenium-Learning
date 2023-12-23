@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Passing parameters using xml file">
+  <test thread-count="1" name="Passing value">
+  <parameter name="browser" value="Google Chrome"/>
+  <parameter name="username" value="Tathagata Pal"/>
+  <parameter name="password" value="gogol@98"/>
+   <classes>
+   <class name="com.testing.training.Parameterxml"></class>
+   </classes>
+ </test> <!-- Test -->
+</suite> <!-- Suite -->

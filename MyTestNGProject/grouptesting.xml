@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="Test case group">
+  <test thread-count="1" name="Group Functionality">
+   <groups>
+   <run>
+   <include name="Regression"></include>
+   <exclude name="Sanity"></exclude>
+   </run>
+   </groups>
+<classes>
+<class name="com.testing.training.Testgrouping"></class>
+</classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

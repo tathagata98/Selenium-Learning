@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="16622" started-at="2023-07-15T00:38:56 IST" finished-at="2023-07-15T00:39:13 IST">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="16622" started-at="2023-07-15T00:38:56 IST" finished-at="2023-07-15T00:39:13 IST">
+      <class name="Practice.testpractice">
+        <test-method status="PASS" signature="entry()[pri:0, instance:Practice.testpractice@4a87761d]" name="entry" is-config="true" duration-ms="2352" started-at="2023-07-15T00:38:56 IST" finished-at="2023-07-15T00:38:59 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- entry -->
+        <test-method status="PASS" signature="openbrowser()[pri:0, instance:Practice.testpractice@4a87761d]" name="openbrowser" duration-ms="3341" started-at="2023-07-15T00:38:59 IST" finished-at="2023-07-15T00:39:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openbrowser -->
+        <test-method status="PASS" signature="openurl()[pri:2, instance:Practice.testpractice@4a87761d]" name="openurl" duration-ms="10228" started-at="2023-07-15T00:39:02 IST" finished-at="2023-07-15T00:39:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- openurl -->
+        <test-method status="PASS" signature="exit()[pri:0, instance:Practice.testpractice@4a87761d]" name="exit" is-config="true" duration-ms="635" started-at="2023-07-15T00:39:12 IST" finished-at="2023-07-15T00:39:13 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exit -->
+      </class> <!-- Practice.testpractice -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

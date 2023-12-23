@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="4" passed="4">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="44" started-at="2022-09-19T22:01:36 IST" finished-at="2022-09-19T22:01:36 IST">
+    <groups>
+      <group name="Sanity">
+        <method signature="Testgrouping.testcasefour()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasefour" class="com.testing.training.Testgrouping"/>
+      </group> <!-- Sanity -->
+      <group name="Smoke Test">
+        <method signature="Testgrouping.testcasethree()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasethree" class="com.testing.training.Testgrouping"/>
+      </group> <!-- Smoke Test -->
+      <group name="Regression">
+        <method signature="Testgrouping.testcasefour()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasefour" class="com.testing.training.Testgrouping"/>
+        <method signature="Testgrouping.testcaseone()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcaseone" class="com.testing.training.Testgrouping"/>
+        <method signature="Testgrouping.testcasetwo()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasetwo" class="com.testing.training.Testgrouping"/>
+      </group> <!-- Regression -->
+    </groups>
+    <test name="Default test" duration-ms="44" started-at="2022-09-19T22:01:36 IST" finished-at="2022-09-19T22:01:36 IST">
+      <class name="com.testing.training.Testgrouping">
+        <test-method status="PASS" signature="testcasefour()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasefour" duration-ms="7" started-at="2022-09-19T22:01:36 IST" finished-at="2022-09-19T22:01:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcasefour -->
+        <test-method status="PASS" signature="testcaseone()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcaseone" duration-ms="1" started-at="2022-09-19T22:01:36 IST" finished-at="2022-09-19T22:01:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcaseone -->
+        <test-method status="PASS" signature="testcasethree()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasethree" duration-ms="1" started-at="2022-09-19T22:01:36 IST" finished-at="2022-09-19T22:01:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcasethree -->
+        <test-method status="PASS" signature="testcasetwo()[pri:0, instance:com.testing.training.Testgrouping@5a8806ef]" name="testcasetwo" duration-ms="1" started-at="2022-09-19T22:01:36 IST" finished-at="2022-09-19T22:01:36 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testcasetwo -->
+      </class> <!-- com.testing.training.Testgrouping -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

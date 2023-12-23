@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Live Project Automation]">
+  <test thread-count="5" name="CelarTrip Test(failed)">
+    <classes>
+      <class name="com.selenium.liveautomation.verify">
+        <methods>
+          <include name="testdelete"/>
+          <include name="verification"/>
+          <include name="loginRediff"/>
+          <include name="setup"/>
+        </methods>
+      </class> <!-- com.selenium.liveautomation.verify -->
+    </classes>
+  </test> <!-- CelarTrip Test(failed) -->
+</suite> <!-- Failed suite [Live Project Automation] -->
