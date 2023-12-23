@@ -1,5 +1,6 @@
 package Practice;
 
+import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -52,13 +53,14 @@ public static void operation()
 	}
 	
 	baseclass.takescreenshot(arr++);
-    driver.navigate().back();
+    baseclass.screenshotflush(--arr);
+	driver.navigate().back();
     
 
 }
-public static void closebrowser()
-{
+public static void closebrowser() throws IOException {
 	driver.quit();
+	baseclass.folderdelete();
 }
 
 
