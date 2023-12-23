@@ -162,7 +162,7 @@ public class baseclass {
 
     public static void folderdelete() throws IOException {
 
-        if ((FileUtils.isEmptyDirectory(new File("Screenshots"))) &(FileUtils.isDirectory(new File("Screenshots")))) {
+        if ((FileUtils.isEmptyDirectory(new File("Screenshots"))) & (FileUtils.isDirectory(new File("Screenshots")))) {
 
             try {
                 FileUtils.deleteDirectory(new File("Screenshots"));
