@@ -1,4 +1,4 @@
-package masterclasspart1;
+/*package masterclasspart1;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-	public class extractclassinselenium  {
+	/*public class extractclassinselenium  {
 		
 		WebDriver driver;
 		@Test
@@ -43,3 +43,5 @@ import org.testng.annotations.Test;
 	
 
 }
+*/
+
