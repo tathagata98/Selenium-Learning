@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
+import org.openqa.selenium.devtools.DevToolsException;
 import org.openqa.selenium.devtools.v120.network.Network;
 import org.openqa.selenium.devtools.v120.network.model.RequestId;
 import org.openqa.selenium.devtools.v120.network.model.Response;
@@ -49,14 +50,22 @@ public class clearconsole {
         dev.addListener(Network.responseReceived(), r ->
         {
             response = r.getResponse();
-            if (response.getUrl().contains(value)) {
+            if ((response.getUrl().endsWith(value)))
+            {
                 RequestId[] requestId = new RequestId[]{r.getRequestId()};
-                System.out.println("The responses are : -");
 
                 for (RequestId id : requestId) {
-                    String responses = dev.send(Network.getResponseBody(id)).getBody();
+                    String responses = null;
+                    try {
+                        responses = dev.send(Network.getResponseBody(id)).getBody();
+                    } catch (DevToolsException e)
+                    {
+                        e.printStackTrace();
+                    }
+                    //String payload = dev.send(Network.getRequestPostData(id));
                     System.out.println("URL :" + j + " :-" + response.getUrl());
                     System.out.println("STATUS CODE :" + j + " :-" + response.getStatus());
+                    //System.out.println("PAYLOAD" + j + " :-" + "=====" + payload);
                     System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
                     j++;
                 }
@@ -70,17 +79,13 @@ public class clearconsole {
 
         driver = new ChromeDriver();
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+        System.out.println("The responses are : -");
 
         requestdetails("quickLinks");
         clearConsoleErrors();
         driver.get("https://www.zomato.com/");
         addcookies();
         requestdetails("check-auth");
-        /*try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }*/
         driver.findElement(By.xpath("//a[contains(text(),'Add restaurant')]")).click();
 
     }
