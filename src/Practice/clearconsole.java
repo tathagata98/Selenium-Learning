@@ -1,98 +1,55 @@
 package Practice;
 
-import org.junit.Test;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.DevTools;
 import org.openqa.selenium.devtools.v120.network.Network;
 import org.openqa.selenium.devtools.v120.network.model.RequestId;
 import org.openqa.selenium.devtools.v120.network.model.Response;
+import org.testng.annotations.Test;
 
 import java.util.Optional;
 import java.util.Set;
 
+
 public class clearconsole {
     int i = 1;
     int j = 1;
-    ChromeDriver driver;
+    static ChromeDriver driver;
 
-    DevTools dev;
+    static DevTools dev;
 
     Response response;
 
-    //@BeforeClass
-    public void openbrowser() {
-        //driver= (ChromeDriver) baseclass.choosebrowserbypassingvalue("chrome");
-        //driver=new ChromeDriver();
-        //System.setProperty("webdriver.chrome.driver","D:\\Selenium-Learning\\chromedriver.exe");
 
-        //driver=new ChromeDriver();
 
-    }
-
-    //@Test
     public void clearConsoleErrors() {
-        //move();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         String script = "console.clear();";
         js.executeScript(script);
+    }
+    public void addcookies()
+    {
+        System.out.println("The cookies are :- ");
         driver.manage().addCookie(new Cookie("profileid", "9999"));
         Set<Cookie> cookies = driver.manage().getCookies();
         String[] Cookie = cookies.toString().split(",");
         for (String print : Cookie)
-            System.out.println(print);
+            System.out.println(" Cookie Details :-"+print);
 
-        //driver.quit();
     }
-
-    @Test
-    public void move() {
-        System.setProperty("webdriver.chrome.driver", "D:\\Selenium-Learning\\chromedriver.exe");
-
-        driver = new ChromeDriver();
-        clearConsoleErrors();
+    public WebDriver requestdetails(String value) {
         dev = driver.getDevTools();
         dev.createSession();
         dev.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
-
-          /*  dev.addListener(Network.requestWillBeSent(),res->
-                    {
-
-
-                         request = res.getRequest();
-                         if(request.getUrl().contains("php")) {
-                             RequestId requestId[] = new RequestId[]{res.getRequestId()};
-                             for (RequestId id : requestId) {
-                                 //String payload = dev.send(Network.getRequestPostData(id)).toString();
-                                 //String responses[] = new String[]{dev.send(Network.getResponseBody(id)).getBody()};
-                            /*if (request.getUrl().contains("weatherstack"))
-                            {
-                                String method = request.getMethod();
-                                System.out.println("URL'S:" + i + " :-" + request.getUrl() + " ===== METHODS:" + method );
-                                urls.add(request.getUrl());
-                                //String payload = dev.send(Network.getRequestPostData(id));
-                                //int status = response.getStatus();
-                                i++;
-                            }
-*/
-                             /*
-                                 String responses = dev.send(Network.getResponseBody(id)).toString();
-                                 System.out.println("URL'S:" + j + " :-" + request.getUrl());
-                                 System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
-
-                                 j++;
-                             }
-                         }
-
-                    });
-
-                            */
-
         dev.addListener(Network.responseReceived(), r ->
         {
             response = r.getResponse();
-            if (response.getUrl().contains("?form")) {
+            if (response.getUrl().contains(value)) {
                 RequestId[] requestId = new RequestId[]{r.getRequestId()};
                 System.out.println("The responses are : -");
 
@@ -105,14 +62,27 @@ public class clearconsole {
                 }
             }
         });
+        return driver;
+    }
+    @Test
+    public void move(){
+        System.setProperty("webdriver.chrome.driver", "E:\\SeleniumPracticeandLearn\\chromedriver.exe");
 
-        driver.get("https://www.flipkart.com/");
-        try {
-            Thread.sleep(5000);
+        driver = new ChromeDriver();
+        //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS) ;
+
+        requestdetails("quickLinks");
+        clearConsoleErrors();
+        driver.get("https://www.zomato.com/");
+        addcookies();
+        requestdetails("check-auth");
+        /*try {
+            Thread.sleep(10000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
-        }
-        //driver.findElement(By.xpath("//span[contains(text(),'Videos')]")).click();
+        }*/
+        driver.findElement(By.xpath("//a[contains(text(),'Add restaurant')]")).click();
+
     }
 
 }
