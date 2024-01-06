@@ -30,7 +30,7 @@ public static void operation()
 	
 	driver.get("https://www.vixen.com/");
 	
-	driver.manage().timeouts().implicitlyWait(testutil.implicit_wait, TimeUnit.SECONDS);
+	driver.manage().timeouts().implicitlyWait(testutil.implicit_wait);
 	
 	
 	WebElement element=driver.findElement(By.xpath("//*[@href='/videos/24-hours']"));

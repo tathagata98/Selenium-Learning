@@ -1,6 +1,7 @@
 package Practice;
 
 
+import org.bouncycastle.cert.ocsp.Req;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
@@ -13,10 +14,8 @@ import org.openqa.selenium.devtools.v120.network.model.RequestId;
 import org.openqa.selenium.devtools.v120.network.model.Response;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.time.Duration;
+import java.util.*;
 
 
 public class clearconsole {
@@ -54,36 +53,41 @@ public class clearconsole {
 
     public void requestdetails(String value) {
         dev = driver.getDevTools();
-        dev.createSessionIfThereIsNotOne();
+        dev.createSession();
         dev.send(Network.enable(Optional.empty(), Optional.empty(), Optional.empty()));
         dev.addListener(Network.responseReceived(), r ->
-                {
-                    response = r.getResponse();
-                    if ((response.getUrl().matches(value))) {
+        {
+            response = r.getResponse();
+            if ((response.getUrl().contains(value))) {
 
-                        RequestId[] requestId = new RequestId[]{r.getRequestId()};
-                        for (RequestId id : requestId) {
-                            try {
-                                responses = dev.send(Network.getResponseBody(id)).getBody();
-                                payload = dev.send(Network.getRequestPostData(id));
+                String url = response.getUrl();
+                RequestId[] requestId = new RequestId[]{r.getRequestId()};
+                for (RequestId id : requestId) {
 
-                            } catch (DevToolsException d) {
-                                d.getMessage();
-
-
-                                System.out.println("URL :" + j + " :-" + value);
-                                System.out.println("STATUS CODE :" + j + " :-" + response.getStatus());
-                                System.out.println("PAYLOAD" + j + " :-" + "=====" + payload);
-                                System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
-                                System.out.println("==================================  "+j);
-
-                            }
+                    try {
+                        payload = dev.send(Network.getRequestPostData(id));
+                        responses = dev.send(Network.getResponseBody(id)).getBody();
+                        System.out.println("URL :" + j + " :-" + url);
+                        System.out.println("STATUS CODE :" + j + " :-" + response.getStatus());
+                        System.out.println("PAYLOAD" + j + " :-" + "=====" + payload);
+                        System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
+                        //System.out.println("RESPONSE " + j + " :-" + "=====" + responses.toString());
+                    } catch (DevToolsException d) {
+                        //payload = dev.send(Network.getRequestPostData(id));
+                        //responses = dev.send(Network.getResponseBody(id)).getBody();
+                        /*System.out.println("URL :" + j + " :-" + url);
+                        System.out.println("STATUS CODE :" + j + " :-" + response.getStatus());
+                        System.out.println("PAYLOAD" + j + " :-" + "=====" + "null");
+                        System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
+                        System.out.println("RESPONSE " + j + " :-" + "=====" + responses.toString());
+*/
                     }
                 }
+            }
             j++;
-
-
         });
+
+        System.out.println("==================================  ");
     }
 
     @Test
@@ -91,13 +95,26 @@ public class clearconsole {
         System.setProperty("webdriver.chrome.driver", "E:\\SeleniumPracticeandLearn\\chromedriver.exe");
 
         driver = new ChromeDriver();
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("The responses are : -");
         requestdetails("https://jumbo.zomato.com/event");
         clearConsoleErrors();
         driver.get("https://www.zomato.com/");
         addcookies();
-        requestdetails("https://jumbo.zomato.com/event");
-        driver.findElement(By.xpath("//a[contains(text(),'Add restaurant')]")).click();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        requestdetails("https://blog.zomato.com/api/fetch");
+        driver.findElement(By.xpath("//a[contains(text(),'Investor Relations')]")).click();
+        addcookies();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         displaycookies();
+        driver.quit();
     }
 }
