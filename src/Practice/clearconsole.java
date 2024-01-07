@@ -75,7 +75,7 @@ String value;
                             System.out.println("PAYLOAD" + j + " :-" + "=====" + payload);
                             System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
                             //System.out.println("RESPONSE " + j + " :-" + "=====" + responses.toString());
-                            System.out.println("==================================  ");
+                            System.out.println("===================================");
                         } catch (DevToolsException d) {
                             //payload = dev.send(Network.getRequestPostData(id));
                             //responses = dev.send(Network.getResponseBody(id)).getBody();
