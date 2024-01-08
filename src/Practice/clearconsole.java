@@ -97,7 +97,7 @@ String value;
                 j++;
 
             });
-            value = "";
+            //value = "";
         }
     }
 
