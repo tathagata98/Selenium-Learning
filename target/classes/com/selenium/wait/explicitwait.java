@@ -1,5 +1,6 @@
 package com.selenium.wait;
 
+import basicutilities.baseclass;
 import basicutilities.testutil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -13,20 +14,19 @@ import org.testng.annotations.Test;
 
 public class explicitwait {
 	
-	WebDriver driver = null;
+	static WebDriver driver;
 	
 	@BeforeMethod
 	public void setup()
 	{
-System.setProperty("webdriver.chrome.driver","C:\\Users\\Tathagata\\workspace\\FirstSeleniumproject\\Drivers\\chromedriver.exe");
+//System.setProperty("webdriver.chrome.driver","C:\\Users\\Tathagata\\workspace\\FirstSeleniumproject\\Drivers\\chromedriver.exe");
 		
-		driver= new ChromeDriver();
+		driver= baseclass.chromeinitialization();
 		
-		//To maximize the browser
-		driver.manage().window().maximize();
-		driver.get("file:///C:/Users/Tathagata/Desktop/ExplicitWait.html");
+		//driver.get("file:///C:/Users/Tathagata/Desktop/ExplicitWait.html");
+		driver.get("http://tplinkwifi.net/");
 	}
-	@AfterMethod
+	//@AfterMethod
 	public void closebrowser()
 	{
 		driver.quit();

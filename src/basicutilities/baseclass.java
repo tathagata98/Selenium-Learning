@@ -67,7 +67,9 @@ public class baseclass {
     }
 
     public static WebDriver chromeinitialization() {
-        WebDriverManager.chromedriver().avoidBrowserDetection().create();
+
+        WebDriverManager.chromedriver().clearDriverCache().setup();
+        WebDriverManager.chromedriver().clearResolutionCache().setup();
         driver = new ChromeDriver();
         return baseclass.localinitialize();
     }

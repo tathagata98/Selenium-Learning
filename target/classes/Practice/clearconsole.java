@@ -1,6 +1,7 @@
 package Practice;
 
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
@@ -75,7 +76,7 @@ String value;
                             System.out.println("PAYLOAD" + j + " :-" + "=====" + payload);
                             System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
                             //System.out.println("RESPONSE " + j + " :-" + "=====" + responses.toString());
-                            System.out.println("==================================  ");
+                            System.out.println("===================================");
                         } catch (DevToolsException d) {
                             //payload = dev.send(Network.getRequestPostData(id));
                             //responses = dev.send(Network.getResponseBody(id)).getBody();
@@ -102,8 +103,8 @@ String value;
 
     @Test
     public void move() {
-        System.setProperty("webdriver.chrome.driver", "E:\\SeleniumPracticeandLearn\\chromedriver.exe");
-
+        WebDriverManager.chromedriver().clearDriverCache().setup();
+        WebDriverManager.chromedriver().clearResolutionCache().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         System.out.println("The responses are : -");
