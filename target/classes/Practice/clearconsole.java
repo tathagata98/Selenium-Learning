@@ -44,7 +44,6 @@ public class clearconsole {
 
     public void displaycookies() {
         System.out.println("The cookies are :- ");
-
         Set<Cookie> cookies = driver.manage().getCookies();
         String[] Cookie = cookies.toString().split(",");
         for (String print : Cookie)
