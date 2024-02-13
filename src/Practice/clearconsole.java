@@ -28,7 +28,7 @@ public class clearconsole {
     static String payload;
 
     static ChromeDriver driver;
-String value;
+    String value;
     DevTools dev;
     static Response response;
 
@@ -44,7 +44,6 @@ String value;
 
     public void displaycookies() {
         System.out.println("The cookies are :- ");
-
         Set<Cookie> cookies = driver.manage().getCookies();
         String[] Cookie = cookies.toString().split(",");
         for (String print : Cookie)
@@ -52,8 +51,7 @@ String value;
 
     }
 
-    public void requestdetails(String value)
-    {
+    public void requestdetails(String value) {
         //this.value=value;
         dev = driver.getDevTools();
         dev.createSessionIfThereIsNotOne();
@@ -78,26 +76,17 @@ String value;
                             //System.out.println("RESPONSE " + j + " :-" + "=====" + responses.toString());
                             System.out.println("===================================");
                         } catch (DevToolsException d) {
-                            //payload = dev.send(Network.getRequestPostData(id));
-                            //responses = dev.send(Network.getResponseBody(id)).getBody();
-                        /*System.out.println("URL :" + j + " :-" + url);
-                        System.out.println("STATUS CODE :" + j + " :-" + response.getStatus());
-                        System.out.println("PAYLOAD" + j + " :-" + "=====" + "null");
-                        System.out.println("RESPONSE " + j + " :-" + "=====" + responses);
-                        System.out.println("RESPONSE " + j + " :-" + "=====" + responses.toString());
-                                        System.out.println("==================================  ");
 
-*/
                         }
 
                     }
 
                 }
-                // }
+
                 j++;
 
             });
-            //value = "";
+
         }
     }
 
