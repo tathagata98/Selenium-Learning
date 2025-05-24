@@ -25,7 +25,7 @@ public class check {
 
     public void i_am_on_ebay_home_page() {
         driver.get("https://www.ebay.com/");
-        System.out.println("-----------------------");
+        System.out.println("----------------------");
     }
 
     public void i_click_on_advanced_link() {
