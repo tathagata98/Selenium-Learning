@@ -5,14 +5,13 @@ import basicutilities.testutil;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class explicitwait {
+public class explicitWait {
 	
 	static WebDriver driver;
 	
@@ -26,14 +25,14 @@ public class explicitwait {
 		//driver.get("file:///C:/Users/Tathagata/Desktop/ExplicitWait.html");
 		driver.get("http://tplinkwifi.net/");
 	}
-	//@AfterMethod
-	public void closebrowser()
+	@AfterMethod
+	public void closeBrowser()
 	{
 		driver.quit();
 	}
 	@Test
 	//First alert button test.
-	public void verifyalert()
+	public void verifyAlert()
 	{
 	driver.findElement(By.xpath("//button[@id='alert']")).click();
 	WebDriverWait wait = new WebDriverWait(driver,testutil.explicit_wait);
@@ -54,7 +53,7 @@ public class explicitwait {
 	
 	@Test(priority=2)
 	//This test is for the display button after 10 seconds.
-	public void verifyelementclickable()
+	public void verifyElementClickable()
 	{
 		driver.findElement(By.id("display-other-button")).click();
 		WebElement b = driver.findElement(By.id("hidden"));
@@ -71,7 +70,7 @@ public class explicitwait {
 	}
 	@Test(priority=3)
 	//Checkbox test case
-	public void verifyelementselected()
+	public void verifyElementSelected()
 	{
 	driver.findElement(By.id("checkbox")).click();
 	//Using Webelement also we can do the following i.e "using id locator"
@@ -93,7 +92,7 @@ public class explicitwait {
 	{
 		driver.findElement(By.id("populate-text")).click();
 		WebDriverWait wait = new WebDriverWait(driver,testutil.explicit_wait);
-wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//h2[@class='target-text']")), "Selenium Webdriver"));
+		wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//h2[@class='target-text']")), "Selenium Webdriver"));
 		}	
 
 }

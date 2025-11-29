@@ -2,7 +2,6 @@ package Practice;
 
 import java.io.IOException;
 import java.util.Properties;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -52,8 +51,8 @@ public static void operation()
 		e.printStackTrace();
 	}
 	
-	baseclass.takescreenshot(arr++);
-    baseclass.screenshotflush(--arr);
+	baseclass.takeScreenshot(arr++);
+    baseclass.screenshotFlush(--arr);
 	driver.navigate().back();
     
 

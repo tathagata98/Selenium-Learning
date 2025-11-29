@@ -1,13 +1,9 @@
 package com.selenium.basics;
 import java.io.IOException;
-import java.util.Map;
 import java.util.Set;
 
 import org.openqa.selenium.Capabilities;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -38,23 +34,22 @@ public static void main(String args[])
 	driver= new ChromeDriver();
 	Capabilities cap=driver.getCapabilities();
 	//driver.quit();
-	Set<String> mycap=cap.getCapabilityNames();
-	System.out.println(mycap);
-	if(mycap.contains("goog:chromeOptions"))
+	Set<String> myCap =cap.getCapabilityNames();
+	System.out.println(myCap);
+	if(myCap.contains("goog:chromeOptions"))
 	o=cap.getCapability("goog:chromeOptions");
 	String value=o.toString();
 	System.out.println(value);
-	int beginindex=value.indexOf(":");
-	int lastindex=value.length();
-	String w=(String) value.subSequence(beginindex+1, lastindex-1);
+	int beginIndex=value.indexOf(":");
+	int lastIndex =value.length();
+	String w=(String) value.subSequence(beginIndex+1, lastIndex -1);
 	System.out.println("Value of localhost for this session is : " +w);
 	Process p = null;
-	String cmdportpass= "cmd /c start chrome.exe --remote-debugging-port=w --user-data-dir=F:\\Chromeport";
-	//driver.get("www.amazon.com");
+	String cmdPortPass = "cmd /c start chrome.exe --remote-debugging-port=w --user-data-dir=F:\\Chromeport";
 	try {
 		
-		p = Runtime.getRuntime().exec(cmdportpass);
-	
+		p = Runtime.getRuntime().exec(cmdPortPass);
+
 	}catch (IOException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();

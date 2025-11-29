@@ -37,7 +37,7 @@ public class framehandling {
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		}
 		@AfterMethod
-		public void closebrowser()
+		public void closeBrowser()
 		{
 			driver.quit();
 		}

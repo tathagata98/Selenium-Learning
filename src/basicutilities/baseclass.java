@@ -2,12 +2,8 @@ package basicutilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -16,6 +12,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Paths;
 import java.util.Properties;
 
@@ -46,7 +43,7 @@ public class baseclass {
         return prop;
     }
     */
-    private static Properties propclass() {
+    private static Properties propClass() {
         prop = new Properties();
         try {
             FileInputStream ip = new FileInputStream("F:\\workspace\\FirstSeleniumproject\\src\\configproperties\\config.properties");
@@ -89,7 +86,7 @@ public class baseclass {
     /********When you want to open a browser from properties file**********/
 
     public static WebDriver choosebrowserfrompropertiesfile() {
-        prop = baseclass.propclass();
+        prop = baseclass.propClass();
 
         String browser = prop.getProperty("browser");
 
@@ -120,7 +117,7 @@ public class baseclass {
     }
 
     public static WebDriver returnurlfrompropfile() {
-        prop = baseclass.propclass();
+        prop = baseclass.propClass();
         String url = prop.getProperty("url");
         if (url.startsWith("https:")) {
             driver.get(url);
@@ -134,7 +131,7 @@ public class baseclass {
         return driver;
     }
 
-    public static void takescreenshot(int ar) {
+    public static void takeScreenshot(int ar) {
         File srcfile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File destfile = new File("Screenshots\\Screenshot" + ar + ".png");
         try {
@@ -145,7 +142,7 @@ public class baseclass {
         }
     }
 
-    public static void screenshotflush(int ar) {
+    public static void screenshotFlush(int ar) {
 
         try {
             Files.deleteIfExists(Paths.get("Screenshots\\Screenshot" + ar + ".png"));
